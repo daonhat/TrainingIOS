@@ -17,14 +17,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btnLogin: UIButton!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        txtEmail.borderTextField(txtField: txtEmail, color: UIColor.white, borderWidth: 1, corner: 25)
-        txtPassword.borderTextField(txtField: txtPassword, color: UIColor.white, borderWidth: 1, corner: 25)
+        txtEmail.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Email Address")
+        txtPassword.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Password")
 
         btnLogin.layer.cornerRadius = 25
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.tintColor = UIColor.white
         
     }
     
@@ -45,9 +50,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func registerButtonClicked(_ sender: Any) {
-        gotoScr(scrID: "registerscr", controllerName: RegisterController())
-    }
     
 
 }
