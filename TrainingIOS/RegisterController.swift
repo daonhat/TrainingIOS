@@ -12,10 +12,10 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtName.borderTextField(txtField: txtName, color: UIColor.white, borderWidth: 1, corner: 25)
-        txtEmail.borderTextField(txtField: txtEmail, color: UIColor.white, borderWidth: 1, corner: 25)
-        txtPhoneNumber.borderTextField(txtField: txtPhoneNumber, color: UIColor.white, borderWidth: 1, corner: 25)
-        txtPassword.borderTextField(txtField: txtPassword, color: UIColor.white, borderWidth: 1, corner: 25)
+        txtName.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Name or Surname")
+        txtEmail.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Email Address")
+        txtPhoneNumber.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Phone number")
+        txtPassword.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Password")
         
         btnAddPhoto.borderButtonAddPhoto(button: btnAddPhoto, color: UIColor.white, borderWidth: 1, corner: 50)
         
