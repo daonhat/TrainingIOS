@@ -1,0 +1,11 @@
+1. WHAT I DO
+  -
+
+2. HOW TO CHECK
+  -
+
+3. REDMINE
+  -
+
+4. SCREENSHOTS
+  -

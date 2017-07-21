@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8439E8FE1F21B45400C484F6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */; };
 		843B18C61F1F3C390069B798 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B18C51F1F3C390069B798 /* RegisterController.swift */; };
 		843FACEE1F1E0C420095A25B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FACED1F1E0C420095A25B /* MainController.swift */; };
 		84BDF8611F1DA43D00BA9228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDF8601F1DA43D00BA9228 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		843B18C51F1F3C390069B798 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		843FACED1F1E0C420095A25B /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		84BDF85D1F1DA43D00BA9228 /* TrainingIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,7 @@
 				843FACED1F1E0C420095A25B /* MainController.swift */,
 				843B18C51F1F3C390069B798 /* RegisterController.swift */,
 				84C165BD1F2192CA005F8B62 /* UIViewExtension.swift */,
+				8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */,
 				84BDF8641F1DA43E00BA9228 /* Main.storyboard */,
 				84BDF8671F1DA43E00BA9228 /* Assets.xcassets */,
 				84BDF8691F1DA43E00BA9228 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			files = (
 				84C165BE1F2192CA005F8B62 /* UIViewExtension.swift in Sources */,
 				843B18C61F1F3C390069B798 /* RegisterController.swift in Sources */,
+				8439E8FE1F21B45400C484F6 /* UIViewControllerExtension.swift in Sources */,
 				84BDF8631F1DA43D00BA9228 /* ViewController.swift in Sources */,
 				843FACEE1F1E0C420095A25B /* MainController.swift in Sources */,
 				84BDF8611F1DA43D00BA9228 /* AppDelegate.swift in Sources */,
