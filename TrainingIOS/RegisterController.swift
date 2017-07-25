@@ -9,6 +9,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnAddPhoto: UIButton!
     @IBOutlet weak var btnRegister: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,11 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         btnAddPhoto.borderButtonAddPhoto(button: btnAddPhoto, color: UIColor.white, borderWidth: 1, corner: 50)
         
         btnRegister.layer.cornerRadius = 25
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +49,15 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         gotoScr(scrID: "mainscr", controllerName: MainController())
         
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 90), animated: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+
     
 
 }

@@ -22,16 +22,7 @@ extension UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    // Start Editing The Text Field
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveTextField(textField: textField , moveDistance: -150, up: true)
-    }
-    
-    // Finish Editing The Text Field
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        moveTextField(textField: textField, moveDistance: -150, up: false)
-    }
-    
+        
     // Hide the keyboard when the return key pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -39,15 +30,9 @@ extension UIViewController {
     }
     
     
-    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool)  {
-        let moveDuration = 0.2
-        let movement: CGFloat = CGFloat(up ? moveDistance :  -moveDistance)
-        
-        UIView.beginAnimations("animateTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(moveDuration)
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 
