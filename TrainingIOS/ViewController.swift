@@ -15,21 +15,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        txtEmail.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Email Address")
-        txtPassword.borderTextField(color: UIColor.white, borderWidth: 1, corner: 25, placeholderText: "Password")
+        txtEmail.borderTextField(color: UIColor.white, borderWidth: 1, corner: 22.5, placeholderText: "Email Address")
+        txtPassword.borderTextField(color: UIColor.white, borderWidth: 1, corner: 22.5, placeholderText: "Password")
 
-        btnLogin.layer.cornerRadius = 25
+        btnLogin.layer.cornerRadius = 22.5
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = UIColor.clear
         navigationController?.navigationBar.tintColor = UIColor.white
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -47,11 +51,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return showAlert(title: "Notification", message: "password too short. Please input password > 6 characters")
         }
         gotoScr(scrID: "mainscr", controllerName: MainController())
-        
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 50), animated: true)
+    }
     
-
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
 }
 
 
