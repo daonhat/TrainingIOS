@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         guard let password = txtPassword.text, password.characters.count > 6 else{
             return showAlert(title: "Notification", message: "password too short. Please input password > 6 characters")
         }
-        gotoScr(scrID: "mainscr", controllerName: MainController())
+        present( UIStoryboard(name: "MainApp", bundle: nil).instantiateViewController(withIdentifier: "MainApp") as! UITabBarController, animated: true, completion: nil)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

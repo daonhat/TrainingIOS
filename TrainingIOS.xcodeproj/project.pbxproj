@@ -10,7 +10,10 @@
 		8439E8FE1F21B45400C484F6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */; };
 		8439E9041F21FB5800C484F6 /* UiTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439E9031F21FB5800C484F6 /* UiTextFieldExtension.swift */; };
 		843B18C61F1F3C390069B798 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B18C51F1F3C390069B798 /* RegisterController.swift */; };
-		843FACEE1F1E0C420095A25B /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FACED1F1E0C420095A25B /* MainController.swift */; };
+		847D50E61F29CB5D0005A63F /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D50E51F29CB5D0005A63F /* MainApp.storyboard */; };
+		847D50EB1F29CE320005A63F /* TimeLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D50EA1F29CE320005A63F /* TimeLineTableViewController.swift */; };
+		847D50EF1F29CEEB0005A63F /* Status01TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D50ED1F29CEEB0005A63F /* Status01TableViewCell.swift */; };
+		847D50F01F29CEEB0005A63F /* Status01TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847D50EE1F29CEEB0005A63F /* Status01TableViewCell.xib */; };
 		84BDF8611F1DA43D00BA9228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDF8601F1DA43D00BA9228 /* AppDelegate.swift */; };
 		84BDF8631F1DA43D00BA9228 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDF8621F1DA43D00BA9228 /* ViewController.swift */; };
 		84BDF8661F1DA43E00BA9228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BDF8641F1DA43E00BA9228 /* Main.storyboard */; };
@@ -23,7 +26,10 @@
 		8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8439E9031F21FB5800C484F6 /* UiTextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiTextFieldExtension.swift; sourceTree = "<group>"; };
 		843B18C51F1F3C390069B798 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
-		843FACED1F1E0C420095A25B /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		847D50E51F29CB5D0005A63F /* MainApp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainApp.storyboard; sourceTree = "<group>"; };
+		847D50EA1F29CE320005A63F /* TimeLineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineTableViewController.swift; sourceTree = "<group>"; };
+		847D50ED1F29CEEB0005A63F /* Status01TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status01TableViewCell.swift; sourceTree = "<group>"; };
+		847D50EE1F29CEEB0005A63F /* Status01TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Status01TableViewCell.xib; sourceTree = "<group>"; };
 		84BDF85D1F1DA43D00BA9228 /* TrainingIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BDF8601F1DA43D00BA9228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BDF8621F1DA43D00BA9228 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +51,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847D50E71F29CBF30005A63F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */,
+				8439E9031F21FB5800C484F6 /* UiTextFieldExtension.swift */,
+				84C165BD1F2192CA005F8B62 /* UIViewExtension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		847D50E81F29CC080005A63F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84BDF8621F1DA43D00BA9228 /* ViewController.swift */,
+				843B18C51F1F3C390069B798 /* RegisterController.swift */,
+				847D50EA1F29CE320005A63F /* TimeLineTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		847D50E91F29CC2E0005A63F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84BDF8641F1DA43E00BA9228 /* Main.storyboard */,
+				847D50E51F29CB5D0005A63F /* MainApp.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		847D50EC1F29CE820005A63F /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				847D50ED1F29CEEB0005A63F /* Status01TableViewCell.swift */,
+				847D50EE1F29CEEB0005A63F /* Status01TableViewCell.xib */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
 		84BDF8541F1DA43D00BA9228 = {
 			isa = PBXGroup;
 			children = (
@@ -65,13 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				84BDF8601F1DA43D00BA9228 /* AppDelegate.swift */,
-				84BDF8621F1DA43D00BA9228 /* ViewController.swift */,
-				843FACED1F1E0C420095A25B /* MainController.swift */,
-				843B18C51F1F3C390069B798 /* RegisterController.swift */,
-				84C165BD1F2192CA005F8B62 /* UIViewExtension.swift */,
-				8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */,
-				8439E9031F21FB5800C484F6 /* UiTextFieldExtension.swift */,
-				84BDF8641F1DA43E00BA9228 /* Main.storyboard */,
+				847D50E81F29CC080005A63F /* Controller */,
+				847D50E91F29CC2E0005A63F /* View */,
+				847D50E71F29CBF30005A63F /* Extension */,
+				847D50EC1F29CE820005A63F /* CustomCell */,
 				84BDF8671F1DA43E00BA9228 /* Assets.xcassets */,
 				84BDF8691F1DA43E00BA9228 /* LaunchScreen.storyboard */,
 				84BDF86C1F1DA43E00BA9228 /* Info.plist */,
@@ -138,9 +179,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D50F01F29CEEB0005A63F /* Status01TableViewCell.xib in Resources */,
 				84BDF86B1F1DA43E00BA9228 /* LaunchScreen.storyboard in Resources */,
 				84BDF8681F1DA43E00BA9228 /* Assets.xcassets in Resources */,
 				84BDF8661F1DA43E00BA9228 /* Main.storyboard in Resources */,
+				847D50E61F29CB5D0005A63F /* MainApp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,10 +196,11 @@
 			files = (
 				84C165BE1F2192CA005F8B62 /* UIViewExtension.swift in Sources */,
 				8439E9041F21FB5800C484F6 /* UiTextFieldExtension.swift in Sources */,
+				847D50EB1F29CE320005A63F /* TimeLineTableViewController.swift in Sources */,
 				843B18C61F1F3C390069B798 /* RegisterController.swift in Sources */,
 				8439E8FE1F21B45400C484F6 /* UIViewControllerExtension.swift in Sources */,
 				84BDF8631F1DA43D00BA9228 /* ViewController.swift in Sources */,
-				843FACEE1F1E0C420095A25B /* MainController.swift in Sources */,
+				847D50EF1F29CEEB0005A63F /* Status01TableViewCell.swift in Sources */,
 				84BDF8611F1DA43D00BA9228 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
