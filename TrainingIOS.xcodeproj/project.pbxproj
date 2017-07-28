@@ -10,6 +10,8 @@
 		8439E8FE1F21B45400C484F6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */; };
 		8439E9041F21FB5800C484F6 /* UiTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439E9031F21FB5800C484F6 /* UiTextFieldExtension.swift */; };
 		843B18C61F1F3C390069B798 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B18C51F1F3C390069B798 /* RegisterController.swift */; };
+		847088D11F2AD4C600B42D49 /* PostStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847088CF1F2AD4C600B42D49 /* PostStatusTableViewCell.swift */; };
+		847088D21F2AD4C600B42D49 /* PostStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847088D01F2AD4C600B42D49 /* PostStatusTableViewCell.xib */; };
 		847D50E61F29CB5D0005A63F /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847D50E51F29CB5D0005A63F /* MainApp.storyboard */; };
 		847D50EB1F29CE320005A63F /* TimeLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D50EA1F29CE320005A63F /* TimeLineTableViewController.swift */; };
 		847D50EF1F29CEEB0005A63F /* Status01TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D50ED1F29CEEB0005A63F /* Status01TableViewCell.swift */; };
@@ -26,6 +28,8 @@
 		8439E8FD1F21B45400C484F6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8439E9031F21FB5800C484F6 /* UiTextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiTextFieldExtension.swift; sourceTree = "<group>"; };
 		843B18C51F1F3C390069B798 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		847088CF1F2AD4C600B42D49 /* PostStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostStatusTableViewCell.swift; sourceTree = "<group>"; };
+		847088D01F2AD4C600B42D49 /* PostStatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostStatusTableViewCell.xib; sourceTree = "<group>"; };
 		847D50E51F29CB5D0005A63F /* MainApp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainApp.storyboard; sourceTree = "<group>"; };
 		847D50EA1F29CE320005A63F /* TimeLineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineTableViewController.swift; sourceTree = "<group>"; };
 		847D50ED1F29CEEB0005A63F /* Status01TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status01TableViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 			children = (
 				847D50ED1F29CEEB0005A63F /* Status01TableViewCell.swift */,
 				847D50EE1F29CEEB0005A63F /* Status01TableViewCell.xib */,
+				847088CF1F2AD4C600B42D49 /* PostStatusTableViewCell.swift */,
+				847088D01F2AD4C600B42D49 /* PostStatusTableViewCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847D50F01F29CEEB0005A63F /* Status01TableViewCell.xib in Resources */,
+				847088D21F2AD4C600B42D49 /* PostStatusTableViewCell.xib in Resources */,
 				84BDF86B1F1DA43E00BA9228 /* LaunchScreen.storyboard in Resources */,
 				84BDF8681F1DA43E00BA9228 /* Assets.xcassets in Resources */,
 				84BDF8661F1DA43E00BA9228 /* Main.storyboard in Resources */,
@@ -195,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C165BE1F2192CA005F8B62 /* UIViewExtension.swift in Sources */,
+				847088D11F2AD4C600B42D49 /* PostStatusTableViewCell.swift in Sources */,
 				8439E9041F21FB5800C484F6 /* UiTextFieldExtension.swift in Sources */,
 				847D50EB1F29CE320005A63F /* TimeLineTableViewController.swift in Sources */,
 				843B18C61F1F3C390069B798 /* RegisterController.swift in Sources */,

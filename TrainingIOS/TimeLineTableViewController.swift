@@ -13,6 +13,8 @@ class TimeLineTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.separatorStyle = .none
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,14 +43,27 @@ class TimeLineTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("Status01TableViewCell", owner: self, options: nil)?.first as! Status01TableViewCell
-
-
-        return cell
+        
+        if indexPath.row == 0 {
+            let cell = Bundle.main.loadNibNamed("PostStatusTableViewCell", owner: self, options: nil)?.first as! PostStatusTableViewCell
+            return cell
+        }
+        else{
+        
+            let cell = Bundle.main.loadNibNamed("Status01TableViewCell", owner: self, options: nil)?.first as! Status01TableViewCell
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        if indexPath.row == 0 {
+            return 64
+        }
+        else{
+            
+            return 600
+        }
+        
     }
     
 
