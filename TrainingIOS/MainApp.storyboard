@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Time Line Table View Controller-->
+        <!--TimeLine-->
         <scene sceneID="quc-gB-VYo">
             <objects>
                 <tableViewController id="I3F-tq-IFr" customClass="TimeLineTableViewController" customModule="TrainingIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,22 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dXu-qR-YcP">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dXu-qR-YcP" id="gKC-o0-khm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="I3F-tq-IFr" id="aXc-Uy-B8b"/>
                             <outlet property="delegate" destination="I3F-tq-IFr" id="qNw-RO-VkF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="LoZ-sd-nM9"/>
+                    <navigationItem key="navigationItem" title="TimeLine" id="LoZ-sd-nM9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dua-cX-qoc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="889" y="-1047"/>
         </scene>
-        <!--MyPage-->
+        <!--My Page-->
         <scene sceneID="Ydz-I2-BKb">
             <objects>
                 <viewController id="xan-o4-J3Q" sceneMemberID="viewController">
@@ -68,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.82307596930000004" green="0.22119937119999999" blue="0.25617683959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="MyPage" id="owL-OC-3B5"/>
+                    <tabBarItem key="tabBarItem" title="My Page" id="owL-OC-3B5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Adj-VR-6nR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,6 +70,7 @@
                 <tabBarController storyboardIdentifier="MainApp" automaticallyAdjustsScrollViewInsets="NO" id="byr-NB-B5d" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="rhT-uo-KCD">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

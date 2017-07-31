@@ -1,21 +1,19 @@
 //
-//  Status01TableViewCell.swift
+//  Status02TableViewCell.swift
 //  TrainingIOS
 //
-//  Created by mod bibi on 7/27/17.
+//  Created by mod bibi on 7/28/17.
 //  Copyright © 2017 DaoNhat. All rights reserved.
 //
 
 import UIKit
 
-class Status01TableViewCell: UITableViewCell {
+class Status02TableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var imgAva01: UIImageView!
-    @IBOutlet weak var lblStatus01: UILabel!
-    @IBOutlet weak var lblUserName01: UILabel!
-    @IBOutlet weak var imgImage: UIImageView!
-    
+    @IBOutlet weak var lblUserName02: UILabel!
+    @IBOutlet weak var imgAva02: UIImageView!
+    @IBOutlet weak var lblContent: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

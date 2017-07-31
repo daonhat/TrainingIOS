@@ -10,10 +10,23 @@ import UIKit
 
 class TimeLineTableViewController: UITableViewController {
 
+    var StatusesData:[Status] = [
+        Status(userName: "Avada Kedavra", content: "Interesting study, another example is Wordpress, even if you just write a few sentences, it (I may most templates) “appears” that you write quite a lot", avatar: #imageLiteral(resourceName: "ic_ava_1"), type: 1, image: #imageLiteral(resourceName: "stt01")),
+        Status(userName: "Tammy Olson", content: "Brainstorming over some wireframes for an upcoming app. #‎ux #‎ui #‎design #‎ios #‎apple #‎studio", avatar: #imageLiteral(resourceName: "ic_ava_post"), type: 2, image: nil),
+        Status(userName: "Avada Kedavra", content: "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien.", avatar: #imageLiteral(resourceName: "ic_ava_post"), type: 1, image: #imageLiteral(resourceName: "stt01")),
+        Status(userName: "Tammy Olson", content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", avatar: #imageLiteral(resourceName: "ic_ava_1"), type: 2, image: nil),
+        Status(userName: "Avada Kedavra", content: "Interesting study, another example is Wordpress, even if you just write a few sentences, it (I may most templates) “appears” that you write quite a lot", avatar: #imageLiteral(resourceName: "ic_ava_post"), type: 1, image: #imageLiteral(resourceName: "stt01")),
+        
+        ]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.separatorStyle = .none
+        
+        self.tableView.estimatedRowHeight = 300
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -38,7 +51,7 @@ class TimeLineTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return StatusesData.count + 1
     }
 
     
@@ -49,12 +62,27 @@ class TimeLineTableViewController: UITableViewController {
             return cell
         }
         else{
-        
-            let cell = Bundle.main.loadNibNamed("Status01TableViewCell", owner: self, options: nil)?.first as! Status01TableViewCell
-            return cell
+            let i = indexPath.row - 1
+            if StatusesData[i].type == 1{
+                let cell = Bundle.main.loadNibNamed("Status01TableViewCell", owner: self, options: nil)?.first as! Status01TableViewCell
+                cell.lblUserName01.text! = StatusesData[i].userName!
+                cell.imgAva01.image = StatusesData[i].avatar
+                cell.lblStatus01.text! = StatusesData[i].content!
+                cell.imgImage.image = StatusesData[i].image
+                
+                return cell
+            }
+            else{
+                let cell = Bundle.main.loadNibNamed("Status02TableViewCell", owner: self, options: nil)?.first as! Status02TableViewCell
+                cell.imgAva02.image = StatusesData[i].avatar
+                cell.lblUserName02.text! = StatusesData[i].userName!
+                cell.lblContent.text! = StatusesData[i].content!
+                
+                return cell
+            }
         }
     }
-    
+   /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 64
@@ -64,7 +92,7 @@ class TimeLineTableViewController: UITableViewController {
             return 600
         }
         
-    }
+    }*/
     
 
     /*
