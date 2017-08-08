@@ -24,6 +24,9 @@ class TimeLineTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.separatorStyle = .none
+        self.tableView.register(UINib(nibName: "PostStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "PostStatus")
+        self.tableView.register(UINib(nibName: "Status01TableViewCell", bundle: nil), forCellReuseIdentifier: "Status01")
+        self.tableView.register(UINib(nibName: "Status02TableViewCell", bundle: nil), forCellReuseIdentifier: "Status02")
         
         self.tableView.estimatedRowHeight = 300
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -58,13 +61,13 @@ class TimeLineTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cell = Bundle.main.loadNibNamed("PostStatusTableViewCell", owner: self, options: nil)?.first as! PostStatusTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostStatus", for: indexPath) as! PostStatusTableViewCell
             return cell
         }
         else{
             let i = indexPath.row - 1
             if StatusesData[i].type == 1{
-                let cell = Bundle.main.loadNibNamed("Status01TableViewCell", owner: self, options: nil)?.first as! Status01TableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Status01", for: indexPath) as! Status01TableViewCell
                 cell.lblUserName01.text! = StatusesData[i].userName!
                 cell.imgAva01.image = StatusesData[i].avatar
                 cell.lblStatus01.text! = StatusesData[i].content!
@@ -73,7 +76,7 @@ class TimeLineTableViewController: UITableViewController {
                 return cell
             }
             else{
-                let cell = Bundle.main.loadNibNamed("Status02TableViewCell", owner: self, options: nil)?.first as! Status02TableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Status02", for: indexPath) as! Status02TableViewCell
                 cell.imgAva02.image = StatusesData[i].avatar
                 cell.lblUserName02.text! = StatusesData[i].userName!
                 cell.lblContent.text! = StatusesData[i].content!
@@ -82,6 +85,40 @@ class TimeLineTableViewController: UITableViewController {
             }
         }
     }
+    
+    
+    @IBAction func backToTimelineController(segue:UIStoryboardSegue) {
+        print(1)
+    }
+    
+    @IBAction func saveStatus(segue:UIStoryboardSegue) {
+        scheduleDemoLocalNotif()
+        if let newStatusViewController = segue.source as? NewStatusViewController{
+            if let status = newStatusViewController.status{
+                self.StatusesData.insert(status, at: 0)
+                tableView.beginUpdates()
+                tableView.insertRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
+                tableView.endUpdates()
+            }
+        }
+    }
+    
+    func scheduleDemoLocalNotif() {
+        let demoNotif = UILocalNotification()
+        demoNotif.fireDate = NSDate(timeIntervalSinceNow: 10) as Date
+        demoNotif.timeZone = NSTimeZone.default
+        
+        demoNotif.alertBody = "You have new status"
+        demoNotif.alertAction = "View"
+        demoNotif.applicationIconBadgeNumber = 1
+        let infoDict = [
+            "msg": "You have new status"
+        ]
+        demoNotif.userInfo = infoDict
+        UIApplication.shared.scheduleLocalNotification(demoNotif)
+    }
+    
+    
    /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
