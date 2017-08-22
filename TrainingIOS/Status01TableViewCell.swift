@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol StatusCellDelegate {
+    func didTapCmt(in indexPath: IndexPath!)
+}
+
 class Status01TableViewCell: UITableViewCell {
     
     
@@ -15,6 +19,10 @@ class Status01TableViewCell: UITableViewCell {
     @IBOutlet weak var lblStatus01: UILabel!
     @IBOutlet weak var lblUserName01: UILabel!
     @IBOutlet weak var imgImage: UIImageView!
+    var indexPath:IndexPath!
+    
+    
+    var delegate: StatusCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +34,9 @@ class Status01TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func cmtBtnClicked(_ sender: Any) {
+            delegate?.didTapCmt(in: self.indexPath)
+    }
+    
     
 }

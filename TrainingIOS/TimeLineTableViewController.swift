@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TimeLineTableViewController: UITableViewController {
+class TimeLineTableViewController: UITableViewController, StatusCellDelegate {
 
-    var StatusesData:[Status] = [
+    var statusesData:[Status] = [
         Status(userName: "Avada Kedavra", content: "Interesting study, another example is Wordpress, even if you just write a few sentences, it (I may most templates) “appears” that you write quite a lot", avatar: #imageLiteral(resourceName: "ic_ava_1"), type: 1, image: #imageLiteral(resourceName: "stt01")),
         Status(userName: "Tammy Olson", content: "Brainstorming over some wireframes for an upcoming app. #‎ux #‎ui #‎design #‎ios #‎apple #‎studio", avatar: #imageLiteral(resourceName: "ic_ava_post"), type: 2, image: nil),
         Status(userName: "Avada Kedavra", content: "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien.", avatar: #imageLiteral(resourceName: "ic_ava_post"), type: 1, image: #imageLiteral(resourceName: "stt01")),
@@ -39,14 +39,14 @@ class TimeLineTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func didTapCmt(in indexPath: IndexPath!) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommentViewController") as! CommentViewController
+        secondViewController.status = statusesData[indexPath.row - 1]
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -54,7 +54,7 @@ class TimeLineTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return StatusesData.count + 1
+        return statusesData.count + 1
     }
 
     
@@ -66,21 +66,24 @@ class TimeLineTableViewController: UITableViewController {
         }
         else{
             let i = indexPath.row - 1
-            if StatusesData[i].type == 1{
+            if statusesData[i].type == 1{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Status01", for: indexPath) as! Status01TableViewCell
-                cell.lblUserName01.text! = StatusesData[i].userName!
-                cell.imgAva01.image = StatusesData[i].avatar
-                cell.lblStatus01.text! = StatusesData[i].content!
-                cell.imgImage.image = StatusesData[i].image
+                cell.indexPath = indexPath
+                cell.lblUserName01.text = statusesData[i].userName!
+                cell.imgAva01.image = statusesData[i].avatar
+                cell.lblStatus01.text = statusesData[i].content!
+                cell.imgImage.image = statusesData[i].image
+                cell.delegate = self
                 
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Status02", for: indexPath) as! Status02TableViewCell
-                cell.imgAva02.image = StatusesData[i].avatar
-                cell.lblUserName02.text! = StatusesData[i].userName!
-                cell.lblContent.text! = StatusesData[i].content!
-                
+                cell.indexPath = indexPath
+                cell.imgAva02.image = statusesData[i].avatar
+                cell.lblUserName02.text! = statusesData[i].userName!
+                cell.lblContent.text! = statusesData[i].content!
+                cell.delegate = self
                 return cell
             }
         }
@@ -95,7 +98,7 @@ class TimeLineTableViewController: UITableViewController {
         scheduleDemoLocalNotif()
         if let newStatusViewController = segue.source as? NewStatusViewController{
             if let status = newStatusViewController.status{
-                self.StatusesData.insert(status, at: 0)
+                self.statusesData.insert(status, at: 0)
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
                 tableView.endUpdates()
