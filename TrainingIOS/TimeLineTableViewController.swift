@@ -31,6 +31,8 @@ class TimeLineTableViewController: UITableViewController, StatusCellDelegate {
         self.tableView.estimatedRowHeight = 300
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newStatus(_:)), name: NSNotification.Name(rawValue: "newStatus"), object: nil)
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,6 +47,17 @@ class TimeLineTableViewController: UITableViewController, StatusCellDelegate {
         secondViewController.status = statusesData[indexPath.row - 1]
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
+
+    func newStatus(_ notification: NSNotification)  {
+        if let status = notification.userInfo?["new_status"] as? Status {
+            self.statusesData.insert(status, at: 0)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,6 +81,7 @@ class TimeLineTableViewController: UITableViewController, StatusCellDelegate {
             let i = indexPath.row - 1
             if statusesData[i].type == 1{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Status01", for: indexPath) as! Status01TableViewCell
+
                 cell.indexPath = indexPath
                 cell.lblUserName01.text = statusesData[i].userName!
                 cell.imgAva01.image = statusesData[i].avatar
@@ -79,49 +93,19 @@ class TimeLineTableViewController: UITableViewController, StatusCellDelegate {
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Status02", for: indexPath) as! Status02TableViewCell
+
                 cell.indexPath = indexPath
                 cell.imgAva02.image = statusesData[i].avatar
                 cell.lblUserName02.text! = statusesData[i].userName!
                 cell.lblContent.text! = statusesData[i].content!
                 cell.delegate = self
+
                 return cell
             }
         }
     }
     
-    
-    @IBAction func backToTimelineController(segue:UIStoryboardSegue) {
-        print(1)
-    }
-    
-    @IBAction func saveStatus(segue:UIStoryboardSegue) {
-        scheduleDemoLocalNotif()
-        if let newStatusViewController = segue.source as? NewStatusViewController{
-            if let status = newStatusViewController.status{
-                self.statusesData.insert(status, at: 0)
-                tableView.beginUpdates()
-                tableView.insertRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
-                tableView.endUpdates()
-            }
-        }
-    }
-    
-    func scheduleDemoLocalNotif() {
-        let demoNotif = UILocalNotification()
-        demoNotif.fireDate = NSDate(timeIntervalSinceNow: 10) as Date
-        demoNotif.timeZone = NSTimeZone.default
         
-        demoNotif.alertBody = "You have new status"
-        demoNotif.alertAction = "View"
-        demoNotif.applicationIconBadgeNumber = 1
-        let infoDict = [
-            "msg": "You have new status"
-        ]
-        demoNotif.userInfo = infoDict
-        UIApplication.shared.scheduleLocalNotification(demoNotif)
-    }
-    
-    
    /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {

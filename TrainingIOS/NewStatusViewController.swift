@@ -24,11 +24,23 @@ class NewStatusViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveStatus" {
-            self.status = Status.init(userName: "Dao Nhat", content: self.txtContent_Status.text, avatar: #imageLiteral(resourceName: "ic_ava_1"), type: 2, image: nil)
-        }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "saveStatus" {
+//            self.status = Status.init(userName: "Dao Nhat", content: self.txtContent_Status.text, avatar: #imageLiteral(resourceName: "ic_ava_1"), type: 2, image: nil)
+//        }
+//    }
+    
+    @IBAction func doneBtnClicked(_ sender: Any) {
+        self.status = Status.init(userName: "Dao Nhat", content: self.txtContent_Status.text, avatar: #imageLiteral(resourceName: "ic_ava_1"), type: 2, image: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newStatus"), object: nil, userInfo: ["new_status": status!])
+        self.dismiss(animated: true, completion: nil)
+        
     }
+    @IBAction func canceBtnClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+   
+    
 
     /*
     // MARK: - Navigation
