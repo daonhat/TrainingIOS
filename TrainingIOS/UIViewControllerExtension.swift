@@ -34,6 +34,21 @@ extension UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    func switchToMainAPP() {
+        present( UIStoryboard(name: "MainApp", bundle: nil).instantiateViewController(withIdentifier: "MainApp") as! UITabBarController, animated: true, completion: nil)
+    }
+    
+    func createIndicator() ->  UIActivityIndicatorView{
+        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        myActivityIndicator.color = UIColor.red
+        myActivityIndicator.center = view.center
+        myActivityIndicator.hidesWhenStopped = false
+        myActivityIndicator.startAnimating()
+        
+        return myActivityIndicator
+    }
+
 
 
 }
