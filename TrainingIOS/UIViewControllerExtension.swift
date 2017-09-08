@@ -42,13 +42,22 @@ extension UIViewController {
     func createIndicator() ->  UIActivityIndicatorView{
         let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         myActivityIndicator.color = UIColor.red
+        myActivityIndicator.frame = view.frame
         myActivityIndicator.center = view.center
-        myActivityIndicator.hidesWhenStopped = false
+        myActivityIndicator.hidesWhenStopped = true
         myActivityIndicator.startAnimating()
         
         return myActivityIndicator
     }
-
+    
+    func addTransitionForAction(subtype:String) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.7
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionReveal
+        transition.subtype = subtype
+        view.window!.layer.add(transition, forKey: nil)
+    }
 
 
 }

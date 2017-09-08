@@ -14,6 +14,8 @@ class Status02TableViewCell: UITableViewCell {
     @IBOutlet weak var lblUserName02: UILabel!
     @IBOutlet weak var imgAva02: UIImageView!
     @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var lblLikes: UILabel!
+    @IBOutlet weak var lblComments: UILabel!
     
     var delegate:StatusCellDelegate?
     var indexPath:IndexPath!
