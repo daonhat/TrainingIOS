@@ -160,7 +160,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgAva02" destination="Lb3-Pj-Xr5" id="JzL-lI-zLQ"/>
+                <outlet property="lblComments" destination="x43-Yv-EfR" id="FGO-nc-ef5"/>
                 <outlet property="lblContent" destination="PKH-fR-Pk7" id="6l6-Nz-tvu"/>
+                <outlet property="lblLikes" destination="cE2-EZ-UiW" id="jDb-tL-GfW"/>
                 <outlet property="lblUserName02" destination="FHa-8m-BLS" id="Lhw-mf-9ye"/>
             </connections>
             <point key="canvasLocation" x="2" y="2.5"/>

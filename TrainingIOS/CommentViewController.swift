@@ -17,24 +17,25 @@ class CommentViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var lblContentStatus: UILabel!
     @IBOutlet weak var imageContentStatus: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
-    
+    @IBOutlet weak var bottomScrollViewConstrain: NSLayoutConstraint!
     var status:Status!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-        if self.status.type == 1{
-            imageViewAvata.image = self.status.avatar
-            lblUserName.text = self.status.userName
-            lblContentStatus.text = self.status.content
-            imageContentStatus.image = self.status.image
+        NotificationCenter.default.addObserver(self, selector: #selector(changeInputMode), name: NSNotification.Name.UITextInputCurrentInputModeDidChange, object: nil)
+        if self.status.type == "status"{
+            imageViewAvata.image = #imageLiteral(resourceName: "ic_ava_1")
+            lblUserName.text = "Andrea Kim"
+            lblContentStatus.text = self.status.status
+            imageContentStatus.image = nil
             
         }else{
             imageViewAvata.image = self.status.avatar
             lblUserName.text = self.status.userName
             lblContentStatus.text = self.status.content
-            imageContentStatus.image = nil
+            imageContentStatus.image = self.status.image
         }
         // Do any additional setup after loading the view.
     }
@@ -51,14 +52,22 @@ class CommentViewController: UIViewController,UITextFieldDelegate {
         let keyboardHeight = keyboardFrame.height - heightOfTabbar!
         let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
         UIView.animate(withDuration: duration, animations: {
+            self.bottomScrollViewConstrain.constant = keyboardHeight + 45;
             self.bottomTextFieldConstrain.constant = keyboardHeight
         }, completion: nil)
     }
     
     func keyboardWillHide(notification:NSNotification) {
         UIView.animate(withDuration: 0.1, animations: {
+            self.bottomScrollViewConstrain.constant = 45;
             self.bottomTextFieldConstrain.constant = 0
         }, completion: nil)
+        
+    }
+    
+    func changeInputMode(notification : NSNotification)
+    {
+        
         
     }
     
